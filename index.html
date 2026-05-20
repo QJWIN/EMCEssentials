@@ -1,15 +1,1301 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>EMCEssentials</title>
+  <title>EMCEssentials — Official Project Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg-1: #071019;
+      --bg-2: #0b1623;
+      --bg-3: #102133;
+      --panel: rgba(16, 28, 43, 0.88);
+      --border: rgba(91, 155, 213, 0.35);
+      --text: #eaf4ff;
+      --muted: #9fb6cc;
+      --cyan: #6fd3ff;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(42, 98, 160, 0.30), transparent 28%),
+        radial-gradient(circle at top right, rgba(0, 179, 255, 0.16), transparent 22%),
+        linear-gradient(180deg, var(--bg-3) 0%, var(--bg-2) 35%, var(--bg-1) 100%);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(6, 12, 20, 0.70);
+      border-bottom: 1px solid rgba(90, 130, 170, 0.18);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #2e5f92 0%, #17314c 100%);
+      border: 1px solid rgba(138, 197, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), var(--shadow);
+      overflow: hidden;
+      flex: 0 0 46px;
+    }
+
+    .brand-badge img {
+      width: 34px;
+      height: 34px;
+      display: block;
+      image-rendering: pixelated;
+      object-fit: contain;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-text p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .language-select-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .language-flag {
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 14px;
+      object-fit: cover;
+      border-radius: 2px;
+      pointer-events: none;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.16);
+    }
+
+    .header-language-select {
+      min-width: 132px;
+      color: #dff2ff;
+      background: rgba(8, 18, 30, 0.92);
+      border: 1px solid rgba(138, 197, 255, 0.35);
+      border-radius: 12px;
+      padding: 9px 12px 9px 38px;
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+      cursor: pointer;
+      appearance: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.18s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 68px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      background:
+        linear-gradient(135deg, rgba(35, 90, 145, 0.34), rgba(7, 18, 30, 0.88)),
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+      transform: translateX(-100%);
+      animation: shine 7s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #cfe7ff;
+      background: rgba(70, 120, 190, 0.16);
+      border: 1px solid rgba(140, 195, 255, 0.20);
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .hero-main h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 0.98;
+      letter-spacing: -1px;
+    }
+
+    .hero-main h2 span {
+      color: var(--cyan);
+    }
+
+    .hero-main p {
+      margin: 18px 0 0;
+      color: #c2d6e8;
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.18s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #2f8cff 0%, #1968da 100%);
+      color: white;
+      box-shadow: 0 8px 24px rgba(24, 112, 220, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(156, 202, 255, 0.22);
+      color: #d5eaff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-card,
+    .panel,
+    .feature-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card {
+      padding: 22px;
+      min-width: 0;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 16px;
+      font-size: 18px;
+    }
+
+    .build-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .build-row {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) minmax(130px, auto);
+      align-items: center;
+      gap: 18px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid rgba(143, 184, 224, 0.12);
+    }
+
+    .build-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .build-label {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.25;
+      white-space: normal;
+    }
+
+    .build-value {
+      font-weight: 700;
+      text-align: right;
+      font-size: 14px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .build-value.highlight {
+      color: #dff2ff;
+    }
+
+    .section {
+      padding: 18px 0 8px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 28px;
+      letter-spacing: -0.4px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin: -6px 0 24px;
+      line-height: 1.6;
+    }
+
+    .panel {
+      padding: 26px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .about-box {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(155, 200, 235, 0.12);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .about-box h4 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .about-box p,
+    .about-box li {
+      color: #c6d8e8;
+      line-height: 1.65;
+    }
+
+    .carousel-section {
+      padding: 38px 0 28px;
+    }
+
+    .carousel-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      border-radius: 24px;
+      border: 1px solid rgba(109, 176, 244, 0.32);
+      background:
+        radial-gradient(circle at center, rgba(74, 163, 255, 0.16), transparent 38%),
+        linear-gradient(180deg, rgba(18, 36, 58, 0.88), rgba(7, 15, 26, 0.92));
+      box-shadow: var(--shadow);
+    }
+
+    .carousel-stage {
+      position: relative;
+      height: 500px;
+      perspective: 1200px;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      max-width: 780px;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(150, 205, 255, 0.32);
+      background: #06101b;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.72);
+      transition: transform 0.45s ease, opacity 0.45s ease, filter 0.45s ease, z-index 0.45s ease;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #06101b;
+    }
+
+    .carousel-item.pos-0 {
+      opacity: 1;
+      z-index: 5;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+      filter: brightness(1.05);
+    }
+
+    .carousel-item.pos-left-1 {
+      opacity: 0.82;
+      z-index: 4;
+      pointer-events: auto;
+      transform: translate(calc(-50% - 280px), -50%) scale(0.82) rotateY(18deg);
+      filter: brightness(0.78);
+    }
+
+    .carousel-item.pos-right-1 {
+      opacity: 0.82;
+      z-index: 4;
+      pointer-events: auto;
+      transform: translate(calc(-50% + 280px), -50%) scale(0.82) rotateY(-18deg);
+      filter: brightness(0.78);
+    }
+
+    .carousel-item.pos-left-2 {
+      opacity: 0.50;
+      z-index: 3;
+      pointer-events: auto;
+      transform: translate(calc(-50% - 480px), -50%) scale(0.64) rotateY(28deg);
+      filter: brightness(0.56);
+    }
+
+    .carousel-item.pos-right-2 {
+      opacity: 0.50;
+      z-index: 3;
+      pointer-events: auto;
+      transform: translate(calc(-50% + 480px), -50%) scale(0.64) rotateY(-28deg);
+      filter: brightness(0.56);
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 8;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(155, 205, 255, 0.32);
+      background: rgba(5, 13, 23, 0.78);
+      color: #eaf4ff;
+      font-size: 24px;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(37, 105, 175, 0.84);
+      transform: translateY(-50%) scale(1.04);
+    }
+
+    .carousel-arrow.left {
+      left: 18px;
+    }
+
+    .carousel-arrow.right {
+      right: 18px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      z-index: 9;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: min(760px, calc(100% - 120px));
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(165, 210, 255, 0.32);
+      cursor: pointer;
+      padding: 0;
+      transition: 0.18s ease;
+    }
+
+    .carousel-dot.active {
+      width: 26px;
+      background: #6fd3ff;
+      box-shadow: 0 0 14px rgba(111, 211, 255, 0.60);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        var(--panel);
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, rgba(67, 141, 222, 0.30), rgba(23, 47, 77, 0.55));
+      border: 1px solid rgba(129, 193, 255, 0.25);
+      font-size: 18px;
+    }
+
+    .feature-card h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: #bdd0e0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .notice {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: rgba(17, 31, 47, 0.85);
+      border: 1px solid rgba(155, 200, 235, 0.16);
+      color: #cfe1ef;
+      line-height: 1.65;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(0, 0, 0, 0.86);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(94vw, 1600px);
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 1px solid rgba(160, 210, 255, 0.30);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.70);
+      background: #03070c;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 22px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(180, 220, 255, 0.35);
+      background: rgba(10, 20, 32, 0.92);
+      color: #eaf4ff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(37, 105, 175, 0.96);
+      transform: scale(1.04);
+    }
+
+    footer {
+      margin-top: 42px;
+      border-top: 1px solid rgba(140, 180, 220, 0.12);
+      background: rgba(5, 10, 17, 0.45);
+    }
+
+    .footer-inner {
+      padding: 28px 0 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-left span,
+    .footer-right {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .hero-main {
+        padding: 28px;
+      }
+
+      .build-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .carousel-item {
+        width: 78%;
+      }
+
+      .carousel-item.pos-left-1 {
+        transform: translate(calc(-50% - 210px), -50%) scale(0.78) rotateY(16deg);
+      }
+
+      .carousel-item.pos-right-1 {
+        transform: translate(calc(-50% + 210px), -50%) scale(0.78) rotateY(-16deg);
+      }
+
+      .carousel-item.pos-left-2 {
+        transform: translate(calc(-50% - 360px), -50%) scale(0.58) rotateY(26deg);
+      }
+
+      .carousel-item.pos-right-2 {
+        transform: translate(calc(-50% + 360px), -50%) scale(0.58) rotateY(-26deg);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 20px, 1180px);
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-main h2 {
+        font-size: 34px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .build-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .build-value {
+        text-align: left;
+        white-space: normal;
+      }
+
+      .carousel-shell,
+      .carousel-stage {
+        min-height: 340px;
+        height: 340px;
+      }
+
+      .carousel-item {
+        width: 92%;
+      }
+
+      .carousel-item.pos-left-1,
+      .carousel-item.pos-right-1 {
+        opacity: 0.35;
+      }
+
+      .carousel-item.pos-left-2,
+      .carousel-item.pos-right-2 {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>EMCEssentials</h1>
-  <p>Page officielle de téléchargement et de présentation du mod.</p>
 
-  <h2>Dernier build</h2>
-  <p>Version : en préparation</p>
-  <p>Code source : privé</p>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="brand-badge">
+          <img src="assets/brand/emce-icon.png" alt="EMCE logo">
+        </div>
+
+        <div class="brand-text">
+          <h1>EMCEssentials</h1>
+          <p>EarthMC client utility mod</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="language-select-wrapper">
+          <img
+            class="language-flag"
+            src="https://catamphetamine.github.io/country-flag-icons/3x2/GB.svg"
+            alt="United Kingdom flag"
+          >
+
+          <select class="header-language-select" aria-label="Language selector">
+            <option selected>English</option>
+          </select>
+        </div>
+
+        <nav>
+          <a href="#overview">Overview</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#features">Features</a>
+          <a href="#upcoming">Roadmap</a>
+          <a href="#build">Build</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="eyebrow">Minecraft UI inspired • EarthMC oriented • Private source</div>
+
+          <h2>Professional tools for <span>EarthMC players</span></h2>
+
+          <p>
+            EMCEssentials enhances the EarthMC experience with a polished client-side interface,
+            powerful navigation tools, player-focused utilities, town and nation data views,
+            waypoints, tracking systems and fast access to the information that matters most.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#build">View latest build</a>
+            <a class="btn btn-secondary" href="#features">Explore features</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="mini-card" id="build">
+            <h3>Latest build</h3>
+
+            <div class="build-list">
+              <div class="build-row">
+                <span class="build-label">Project</span>
+                <span class="build-value">EMCEssentials</span>
+              </div>
+
+              <div class="build-row">
+                <span class="build-label">Status</span>
+                <span class="build-value highlight" id="buildStatus">Loading...</span>
+              </div>
+
+              <div class="build-row">
+                <span class="build-label">Mod version</span>
+                <span class="build-value" id="modVersion">Loading...</span>
+              </div>
+
+              <div class="build-row">
+                <span class="build-label">Minecraft version</span>
+                <span class="build-value" id="minecraftVersion">Loading...</span>
+              </div>
+
+              <div class="build-row">
+                <span class="build-label">Loader</span>
+                <span class="build-value" id="loaderName">Loading...</span>
+              </div>
+
+              <div class="build-row">
+                <span class="build-label">Source code</span>
+                <span class="build-value" id="sourceCode">Private</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <h3>Download</h3>
+
+            <p style="margin:0; color:#c6d8e8; line-height:1.6;">
+              Public downloads will be available when the project reaches a release-ready build.
+              Until then, this page presents the mod, its interface and its main systems.
+            </p>
+
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn btn-secondary" href="#">Download coming soon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <h3 class="section-title">Overview</h3>
+
+      <p class="section-subtitle">
+        EMCEssentials brings EarthMC players a faster, cleaner and more powerful way
+        to explore player data, manage useful locations, track activity and navigate
+        the world through a dedicated in-game interface.
+      </p>
+
+      <div class="panel">
+        <div class="about-grid">
+          <div class="about-box">
+            <h4>Built for EarthMC gameplay</h4>
+
+            <p>
+              EMCEssentials centralizes key information and player tools inside a custom interface
+              designed for EarthMC. The goal is simple: reduce friction, improve visibility and give
+              players faster access to the data and actions they use every day.
+            </p>
+          </div>
+
+          <div class="about-box">
+            <h4>Designed around speed and clarity</h4>
+
+            <ul>
+              <li>Clean client-side menus inspired by Minecraft UI</li>
+              <li>Fast access to towns, nations, players and saved locations</li>
+              <li>Practical tools for tracking, navigation and organization</li>
+              <li>Public project page with private source code protection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="carousel-section" id="gallery">
+      <h3 class="section-title">In-game interface gallery</h3>
+
+      <p class="section-subtitle">
+        Explore real EMCEssentials screens showcasing the mod’s custom interface,
+        player tools, EarthMC data views, navigation systems and visual direction.
+      </p>
+
+      <div class="carousel-shell">
+        <button class="carousel-arrow left" type="button" aria-label="Previous screenshot" id="carouselPrev">‹</button>
+
+        <div class="carousel-stage" id="carouselStage"></div>
+
+        <button class="carousel-arrow right" type="button" aria-label="Next screenshot" id="carouselNext">›</button>
+
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h3 class="section-title">Core Features</h3>
+
+      <p class="section-subtitle">
+        Built for active EarthMC players, EMCEssentials centralizes the tools needed to
+        search, track, navigate and organize important information directly from the client.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">👤</div>
+          <h4>Player profiles</h4>
+          <p>Access detailed player information through clean profile screens built for fast reading and quick decision-making.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏙️</div>
+          <h4>Town & nation data</h4>
+          <p>Browse towns, nations, residents and related EarthMC information through dedicated in-game menus.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📡</div>
+          <h4>Radar</h4>
+          <p>Improve local awareness with radar-oriented tools designed to help players track nearby activity more efficiently.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h4>Waypoints</h4>
+          <p>Save important locations, organize travel points and return to key places with a dedicated waypoint system.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚨</div>
+          <h4>Panic TP</h4>
+          <p>React faster in dangerous situations with a quick emergency teleport utility designed for high-risk travel.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📤</div>
+          <h4>Data export</h4>
+          <p>Export useful EarthMC data for external organization, personal tracking and better long-term planning.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h4>Favorites & watchlist</h4>
+          <p>Keep important players, places and targets easy to find with favorites and watchlist-oriented tools.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h4>Teleport history</h4>
+          <p>Review previous teleport destinations and navigate your movement history with better control.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h4>Custom UI theme</h4>
+          <p>Enjoy a coherent interface direction inspired by Minecraft visuals and the EMCEssentials in-game identity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="upcoming">
+      <h3 class="section-title">Upcoming Features</h3>
+
+      <p class="section-subtitle">
+        EMCEssentials is designed as an evolving EarthMC companion. Future updates will expand
+        the mod with deeper tools, stronger customization and more advanced player utilities.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🗂️</div>
+          <h4>Advanced exports</h4>
+          <p>More export formats and cleaner data packages for towns, nations, residents and player activity.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h4>Quick actions</h4>
+          <p>Configurable shortcuts for frequent actions such as navigation, tracking, teleport tools and personal utilities.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h4>Safety tools</h4>
+          <p>Expanded emergency features around Panic TP, danger awareness and fast reaction systems.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🧩</div>
+          <h4>Modular settings</h4>
+          <p>More control over which systems are enabled, making the mod easier to adapt to each player’s needs.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h4>Enhanced mapping</h4>
+          <p>Improved links between towns, nations, waypoints and map-related information for better planning.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h4>Smart alerts</h4>
+          <p>Optional alerts for watched players, important locations, tracked changes and useful EarthMC events.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="privacy">
+      <h3 class="section-title">Privacy & publishing model</h3>
+
+      <div class="notice">
+        The EMCEssentials source code is stored in a private repository and is not publicly visible.
+        This website is the public-facing project page: it presents the mod, highlights its major systems
+        and can later provide controlled release information or public downloads.
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Close fullscreen image">×</button>
+    <img id="lightboxImage" src="" alt="Fullscreen EMCEssentials screenshot">
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <strong>EMCEssentials</strong>
+        <span>EarthMC utility mod • Official public project page</span>
+      </div>
+
+      <div class="footer-right">
+        © QJWIN — All rights reserved
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    function applyLatestBuildData(data) {
+      const statusElement = document.getElementById("buildStatus");
+      const modVersionElement = document.getElementById("modVersion");
+      const minecraftVersionElement = document.getElementById("minecraftVersion");
+      const loaderElement = document.getElementById("loaderName");
+      const sourceCodeElement = document.getElementById("sourceCode");
+
+      if (statusElement) {
+        statusElement.textContent = data.status || "In development";
+      }
+
+      if (modVersionElement) {
+        modVersionElement.textContent = data.modVersion || "Unknown";
+      }
+
+      if (minecraftVersionElement) {
+        minecraftVersionElement.textContent = data.minecraftVersion || "Unknown";
+      }
+
+      if (loaderElement) {
+        loaderElement.textContent = data.loader || "Fabric";
+      }
+
+      if (sourceCodeElement) {
+        sourceCodeElement.textContent = data.sourceCode || "Private";
+      }
+    }
+
+    function loadLatestBuildData() {
+      fetch("./latest.json?v=" + Date.now(), { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("latest.json unavailable");
+          }
+
+          return response.json();
+        })
+        .then((data) => {
+          applyLatestBuildData(data);
+        })
+      .catch(() => {
+        applyLatestBuildData({
+          status: "Build data unavailable",
+          modVersion: "latest.json not loaded",
+          minecraftVersion: "latest.json not loaded",
+          loader: "Fabric",
+          sourceCode: "Private"
+        });
+      });
+    }
+
+    const screenshots = [
+      "assets/screenshots/screen-01.png",
+      "assets/screenshots/screen-02.png",
+      "assets/screenshots/screen-03.png",
+      "assets/screenshots/screen-04.png",
+      "assets/screenshots/screen-05.png",
+      "assets/screenshots/screen-06.png",
+      "assets/screenshots/screen-07.png",
+      "assets/screenshots/screen-08.png",
+      "assets/screenshots/screen-09.png",
+      "assets/screenshots/screen-10.png",
+      "assets/screenshots/screen-11.png",
+      "assets/screenshots/screen-12.png",
+      "assets/screenshots/screen-13.png",
+      "assets/screenshots/screen-14.png",
+      "assets/screenshots/screen-15.png",
+      "assets/screenshots/screen-16.png",
+      "assets/screenshots/screen-17.png"
+    ];
+
+    const stage = document.getElementById("carouselStage");
+    const dots = document.getElementById("carouselDots");
+    const previousButton = document.getElementById("carouselPrev");
+    const nextButton = document.getElementById("carouselNext");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    let currentIndex = 0;
+    let autoScrollTimer = null;
+
+    function wrapIndex(index) {
+      return (index + screenshots.length) % screenshots.length;
+    }
+
+    function renderCarousel() {
+      stage.innerHTML = "";
+
+      const visibleOffsets = [-2, -1, 0, 1, 2];
+
+      visibleOffsets.forEach((offset) => {
+        const imageIndex = wrapIndex(currentIndex + offset);
+        const item = document.createElement("div");
+        const image = document.createElement("img");
+
+        item.className = "carousel-item";
+        item.dataset.index = imageIndex;
+
+        if (offset === -2) {
+          item.classList.add("pos-left-2");
+        }
+
+        if (offset === -1) {
+          item.classList.add("pos-left-1");
+        }
+
+        if (offset === 0) {
+          item.classList.add("pos-0");
+        }
+
+        if (offset === 1) {
+          item.classList.add("pos-right-1");
+        }
+
+        if (offset === 2) {
+          item.classList.add("pos-right-2");
+        }
+
+        image.src = screenshots[imageIndex];
+        image.alt = "EMCEssentials in-game screenshot " + String(imageIndex + 1).padStart(2, "0");
+
+        item.appendChild(image);
+
+        item.addEventListener("click", () => {
+          openLightbox(imageIndex);
+        });
+
+        stage.appendChild(item);
+      });
+
+      renderDots();
+    }
+
+    function renderDots() {
+      dots.innerHTML = "";
+
+      screenshots.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+
+        if (index === currentIndex) {
+          dot.classList.add("active");
+        }
+
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          renderCarousel();
+          restartAutoScroll();
+        });
+
+        dots.appendChild(dot);
+      });
+    }
+
+    function goPrevious() {
+      currentIndex = wrapIndex(currentIndex - 1);
+      renderCarousel();
+    }
+
+    function goNext() {
+      currentIndex = wrapIndex(currentIndex + 1);
+      renderCarousel();
+    }
+
+    function startAutoScroll() {
+      autoScrollTimer = window.setInterval(() => {
+        goNext();
+      }, 4200);
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollTimer !== null) {
+        window.clearInterval(autoScrollTimer);
+        autoScrollTimer = null;
+      }
+    }
+
+    function restartAutoScroll() {
+      stopAutoScroll();
+      startAutoScroll();
+    }
+
+    function openLightbox(imageIndex) {
+      stopAutoScroll();
+      lightboxImage.src = screenshots[imageIndex];
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      restartAutoScroll();
+    }
+
+    previousButton.addEventListener("click", () => {
+      goPrevious();
+      restartAutoScroll();
+    });
+
+    nextButton.addEventListener("click", () => {
+      goNext();
+      restartAutoScroll();
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("active")) {
+        closeLightbox();
+      }
+
+      if (!lightbox.classList.contains("active") && event.key === "ArrowLeft") {
+        goPrevious();
+        restartAutoScroll();
+      }
+
+      if (!lightbox.classList.contains("active") && event.key === "ArrowRight") {
+        goNext();
+        restartAutoScroll();
+      }
+    });
+
+    loadLatestBuildData();
+    renderCarousel();
+    startAutoScroll();
+  </script>
+
 </body>
 </html>
