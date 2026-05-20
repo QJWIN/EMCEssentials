@@ -562,6 +562,131 @@
       font-size: 14px;
     }
 
+
+    .feature-section-label {
+      margin: 28px 0 16px;
+      color: #dff2ff;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .feature-section-label.premium {
+      color: #ff7bff;
+      text-shadow: 0 0 14px rgba(255, 77, 255, 0.35);
+    }
+
+    .feature-card.premium {
+      border-color: rgba(255, 77, 255, 0.55);
+      background:
+        linear-gradient(180deg, rgba(255, 77, 255, 0.075), rgba(255,255,255,0.01)),
+        var(--panel);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 77, 255, 0.13),
+        0 0 28px rgba(255, 77, 255, 0.10);
+    }
+
+    .feature-card.premium .feature-icon {
+      background: linear-gradient(180deg, rgba(255, 77, 255, 0.24), rgba(67, 22, 75, 0.55));
+      border-color: rgba(255, 145, 255, 0.38);
+    }
+
+    .premium-strip {
+      margin: 24px 0 6px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 77, 255, 0.40);
+      background:
+        linear-gradient(90deg, rgba(255, 77, 255, 0.16), rgba(18, 36, 58, 0.75)),
+        rgba(17, 31, 47, 0.85);
+      color: #ffd9ff;
+      line-height: 1.65;
+      box-shadow: 0 0 26px rgba(255, 77, 255, 0.08);
+    }
+
+    .premium-strip a {
+      color: #ffb3ff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .roadmap-card {
+      position: relative;
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+        var(--panel);
+      border: 1px solid rgba(155, 200, 235, 0.16);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .roadmap-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #6fd3ff, rgba(111, 211, 255, 0.15));
+    }
+
+    .roadmap-card.premium-roadmap::before {
+      background: linear-gradient(180deg, #ff4dff, rgba(255, 77, 255, 0.15));
+    }
+
+    .roadmap-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, rgba(67, 141, 222, 0.30), rgba(23, 47, 77, 0.55));
+      border: 1px solid rgba(129, 193, 255, 0.25);
+      font-size: 18px;
+    }
+
+    .roadmap-card.premium-roadmap .roadmap-icon {
+      background: linear-gradient(180deg, rgba(255, 77, 255, 0.22), rgba(65, 23, 77, 0.50));
+      border-color: rgba(255, 120, 255, 0.35);
+    }
+
+    .roadmap-card h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .roadmap-card p {
+      margin: 0;
+      color: #bdd0e0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .event-list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #bdd0e0;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .event-list li {
+      margin-bottom: 4px;
+    }
+
+
     .notice {
       margin-top: 22px;
       padding: 18px 20px;
@@ -648,7 +773,8 @@
     @media (max-width: 980px) {
       .hero-grid,
       .about-grid,
-      .feature-grid {
+      .feature-grid,
+      .roadmap-grid {
         grid-template-columns: 1fr;
       }
 
@@ -918,30 +1044,44 @@
     </section>
 
     <section class="section" id="features">
-      <h3 class="section-title">Core Features</h3>
+      <h3 class="section-title">Features</h3>
 
       <p class="section-subtitle">
-        Built for active EarthMC players, EMCEssentials centralizes the tools needed to
-        search, track, navigate and organize important information directly from the client.
+        EMCEssentials combines free EarthMC navigation tools with optional premium utilities.
+        Premium features are highlighted in magenta, matching the locked state shown in the in-game UI.
       </p>
+
+      <div class="premium-strip">
+        <strong>Default menu key:</strong> open EMCEssentials in game with the default keybind <strong>/</strong>.<br>
+        <strong>Premium access:</strong> unlock premium features through the French community Discord:
+        <a href="https://discord.gg/zbtXhKpjmW" target="_blank" rel="noopener noreferrer">discord.gg/zbtXhKpjmW</a>
+      </div>
+
+      <div class="feature-section-label">Included features</div>
 
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">👤</div>
           <h4>Player profiles</h4>
-          <p>Access detailed player information through clean profile screens built for fast reading and quick decision-making.</p>
+          <p>Search residents and open clean player profile screens built for fast reading and quick decision-making.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🏙️</div>
-          <h4>Town & nation data</h4>
-          <p>Browse towns, nations, residents and related EarthMC information through dedicated in-game menus.</p>
+          <h4>Town directory</h4>
+          <p>Browse towns, inspect town information and use practical EarthMC navigation tools directly from the client.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏳️</div>
+          <h4>Nation directory</h4>
+          <p>Explore nation profiles and related EarthMC information through dedicated in-game menus.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">📡</div>
-          <h4>Radar</h4>
-          <p>Improve local awareness with radar-oriented tools designed to help players track nearby activity more efficiently.</p>
+          <h4>Basic radar</h4>
+          <p>Use the standard radar interface and general radar settings without requiring premium access.</p>
         </div>
 
         <div class="feature-card">
@@ -951,27 +1091,15 @@
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🚨</div>
-          <h4>Panic TP</h4>
-          <p>React faster in dangerous situations with a quick emergency teleport utility designed for high-risk travel.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📤</div>
-          <h4>Data export</h4>
-          <p>Export useful EarthMC data for external organization, personal tracking and better long-term planning.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">⭐</div>
-          <h4>Favorites & watchlist</h4>
-          <p>Keep important players, places and targets easy to find with favorites and watchlist-oriented tools.</p>
+          <div class="feature-icon">✉️</div>
+          <h4>Townless invite</h4>
+          <p>Invite selected townless players directly from the townless interface with the standard single-invite action.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🧭</div>
-          <h4>Teleport history</h4>
-          <p>Review previous teleport destinations and navigate your movement history with better control.</p>
+          <h4>Basic navigation</h4>
+          <p>Use clear menus, back buttons, paging controls and quick detail views designed around the EMCEssentials interface.</p>
         </div>
 
         <div class="feature-card">
@@ -979,52 +1107,131 @@
           <h4>Custom UI theme</h4>
           <p>Enjoy a coherent interface direction inspired by Minecraft visuals and the EMCEssentials in-game identity.</p>
         </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h4>General options</h4>
+          <p>Access standard configuration and keybind settings that are not tied to premium-only systems.</p>
+        </div>
+      </div>
+
+      <div class="feature-section-label premium">Premium features</div>
+
+      <div class="feature-grid">
+        <div class="feature-card premium">
+          <div class="feature-icon">🚨</div>
+          <h4>Panic TP</h4>
+          <p>React faster in dangerous situations with emergency teleport utilities designed for high-risk travel.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">📤</div>
+          <h4>Data & mode</h4>
+          <p>Use export, import and advanced data tools for external organization, tracking and long-term planning.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">⭐</div>
+          <h4>Favorites</h4>
+          <p>Keep important profiles and places easy to find with premium favorite shortcuts.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">👁️</div>
+          <h4>Watchlist</h4>
+          <p>Watch selected players and keep priority targets visible through dedicated premium monitoring tools.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">🎯</div>
+          <h4>Tracking</h4>
+          <p>Track selected residents from resident, watchlist and townless views with premium account access.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">📨</div>
+          <h4>Bulk invite</h4>
+          <p>Invite all eligible townless players faster with premium bulk invitation workflows.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">📊</div>
+          <h4>Town & nation stats</h4>
+          <p>Open premium statistical views for towns and nations when deeper data inspection is needed.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">🕘</div>
+          <h4>Teleport history</h4>
+          <p>Review previous teleport destinations and navigate your movement history with better control.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">📚</div>
+          <h4>TP lists</h4>
+          <p>Create and manage teleport-oriented lists for faster organization and smoother travel workflows.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">🔔</div>
+          <h4>Premium radar alerts</h4>
+          <p>Unlock watchlist and tracking-related radar alerts for stronger awareness around selected players.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="upcoming">
-      <h3 class="section-title">Upcoming Features</h3>
+    <section class="section" id="roadmap">
+      <h3 class="section-title">Roadmap</h3>
 
       <p class="section-subtitle">
-        EMCEssentials is designed as an evolving EarthMC companion. Future updates will expand
-        the mod with deeper tools, stronger customization and more advanced player utilities.
+        Upcoming EMCEssentials updates will focus on deeper profile management,
+        smarter live alerts and richer EarthMC event tracking directly inside the client.
       </p>
 
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🗂️</div>
-          <h4>Advanced exports</h4>
-          <p>More export formats and cleaner data packages for towns, nations, residents and player activity.</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-card premium-roadmap">
+          <div class="roadmap-icon">🧑‍💼</div>
+          <h4>My Profile management tools</h4>
+          <p>
+            Four dedicated management options are planned inside <strong>My Profile</strong>,
+            giving players faster control over personal EMCEssentials systems from a single profile hub.
+          </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h4>Quick actions</h4>
-          <p>Configurable shortcuts for frequent actions such as navigation, tracking, teleport tools and personal utilities.</p>
+        <div class="roadmap-card">
+          <div class="roadmap-icon">⛈️</div>
+          <h4>Weather intelligence</h4>
+          <p>
+            Weather information will be added with clear alerts for thunder and storm conditions,
+            helping players react before dangerous weather impacts travel, visibility or gameplay.
+          </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h4>Safety tools</h4>
-          <p>Expanded emergency features around Panic TP, danger awareness and fast reaction systems.</p>
+        <div class="roadmap-card">
+          <div class="roadmap-icon">🗳️</div>
+          <h4>Vote party countdown</h4>
+          <p>
+            EMCEssentials will track remaining vote party progress with alerts from 100 down to 0,
+            making it easier to follow server-wide vote milestones without leaving the game.
+          </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🧩</div>
-          <h4>Modular settings</h4>
-          <p>More control over which systems are enabled, making the mod easier to adapt to each player’s needs.</p>
-        </div>
+        <div class="roadmap-card premium-roadmap">
+          <div class="roadmap-icon">📡</div>
+          <h4>Live SSE event feed</h4>
+          <p>
+            A future live event system will surface important EarthMC activity through real-time alerts,
+            covering world, nation, town, resident and shop events.
+          </p>
 
-        <div class="feature-card">
-          <div class="feature-icon">🌍</div>
-          <h4>Enhanced mapping</h4>
-          <p>Improved links between towns, nations, waypoints and map-related information for better planning.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🔔</div>
-          <h4>Smart alerts</h4>
-          <p>Optional alerts for watched players, important locations, tracked changes and useful EarthMC events.</p>
+          <ul class="event-list">
+            <li>World: NewDay</li>
+            <li>Nations: created, deleted, renamed, king changed, merged</li>
+            <li>Towns: created, deleted, renamed, mayor changed, merged, ruined, reclaimed</li>
+            <li>Nation links: town joined nation, town left nation</li>
+            <li>Residents: joined town, left town</li>
+            <li>Shops: sold item, bought item, out of stock, out of space, out of gold</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1100,15 +1307,15 @@
         .then((data) => {
           applyLatestBuildData(data);
         })
-      .catch(() => {
-        applyLatestBuildData({
-          status: "Build data unavailable",
-          modVersion: "latest.json not loaded",
-          minecraftVersion: "latest.json not loaded",
-          loader: "Fabric",
-          sourceCode: "Private"
+        .catch(() => {
+          applyLatestBuildData({
+            status: "In development",
+            modVersion: "0.1.0-dev",
+            minecraftVersion: "1.21.11",
+            loader: "Fabric",
+            sourceCode: "Private"
+          });
         });
-      });
     }
 
     const screenshots = [
