@@ -1,7 +1,7 @@
 {
   "project": "EMCEssentials",
   "status": "In development",
-  "modVersion": "0.3.3-dev",
+  "modVersion": "0.4.0",
   "minecraftVersion": "1.21.11",
   "loader": "Fabric",
   "sourceCode": "Private",
