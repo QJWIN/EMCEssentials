@@ -982,7 +982,7 @@
             </p>
 
             <div class="hero-actions" style="margin-top:18px;">
-              <a class="btn btn-secondary" id="downloadButton" href="#">Download loading...</a>
+              <a class="btn btn-secondary" id="downloadButton" href="#" aria-disabled="true">Download loading...</a>
             </div>
           </div>
         </div>
@@ -1273,6 +1273,7 @@
       const minecraftVersionElement = document.getElementById("minecraftVersion");
       const loaderElement = document.getElementById("loaderName");
       const sourceCodeElement = document.getElementById("sourceCode");
+      const downloadButton = document.getElementById("downloadButton");
 
       if (statusElement) {
         statusElement.textContent = data.status || "In development";
@@ -1293,6 +1294,23 @@
       if (sourceCodeElement) {
         sourceCodeElement.textContent = data.sourceCode || "Private";
       }
+
+      if (downloadButton) {
+        if (data.downloadUrl) {
+          downloadButton.href = data.downloadUrl;
+          downloadButton.textContent = "Download EMCEssentials " + (data.modVersion || "");
+          downloadButton.classList.remove("btn-secondary");
+          downloadButton.classList.add("btn-primary");
+          downloadButton.removeAttribute("aria-disabled");
+        } else {
+          downloadButton.href = "#";
+          downloadButton.textContent = "Download coming soon";
+          downloadButton.classList.remove("btn-primary");
+          downloadButton.classList.add("btn-secondary");
+          downloadButton.setAttribute("aria-disabled", "true");
+        }
+      }
+
     }
 
     function loadLatestBuildData() {
@@ -1313,7 +1331,8 @@
             modVersion: "0.1.0-dev",
             minecraftVersion: "1.21.11",
             loader: "Fabric",
-            sourceCode: "Private"
+            sourceCode: "Private",
+            downloadUrl: null
           });
         });
     }
