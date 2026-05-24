@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EMCEssentials — Changelog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#102133,#071019);color:#eaf4ff;min-height:100vh}.container{width:min(980px,calc(100% - 32px));margin:0 auto;padding:42px 0}.card{background:rgba(16,28,43,.88);border:1px solid rgba(91,155,213,.35);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 12px 30px rgba(0,0,0,.35)}a{color:#6fd3ff}.muted{color:#9fb6cc}.version{color:#ff7bff}li{margin:8px 0;line-height:1.5}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <a href="index.html">← Back to EMCEssentials</a>
+    <h1>EMCEssentials Changelog</h1>
+    <p class="muted">Plain update notes for players. Short, practical and focused on what changed in game.</p>
+    <div id="entries"></div>
+  </main>
+  <script>
+    fetch('changelog.json?v=' + Date.now(), {cache:'no-store'}).then(r=>r.json()).then(data=>{
+      const target=document.getElementById('entries');
+      target.innerHTML='';
+      data.entries.forEach(entry=>{
+        const card=document.createElement('section');
+        card.className='card';
+        card.innerHTML=`<h2><span class="version">${entry.version}</span> — ${entry.title}</h2><p class="muted">${entry.date}</p><ul>${entry.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+        target.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

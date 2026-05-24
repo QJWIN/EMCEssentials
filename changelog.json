@@ -1,0 +1,20 @@
+{
+  "project": "EMCEssentials",
+  "entries": [
+    {
+      "version": "0.5.0",
+      "date": "2026-05-24",
+      "title": "First clean public build",
+      "items": [
+        "Main menu rebuilt with clearer Free, Premium and Roadmap sections.",
+        "EMC Store added with offer cards, store links and automatic in-game name login.",
+        "EarthMC Premium and EMCE Premium are now shown as separate status cards.",
+        "Hopper Filter builder added for saving, validating and copying Hopplet scripts.",
+        "Advertising added as an EMCE Premium tool for preparing /trade messages.",
+        "Premium cards now show their locked or active state directly in the menu.",
+        "Weather, vote, waypoint and profile tools were cleaned up into the new UI style.",
+        "mcMMO, Towny and unfinished Extras cards are now grouped into the roadmap until ready."
+      ]
+    }
+  ]
+}
