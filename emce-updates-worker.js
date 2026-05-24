@@ -11,9 +11,9 @@ export default {
     }
 
     return json({
-      latestVersion: "0.5.1",
+      latestVersion: "0.5.3",
       minecraftVersion: "1.21.11",
-      downloadUrl: "https://qjwin.github.io/EMCEssentials/downloads/EMCEssentials-0.5.1.jar",
+      downloadUrl: "https://qjwin.github.io/EMCEssentials/downloads/EMCEssentials-0.5.3.jar",
       changelogUrl: "https://qjwin.github.io/EMCEssentials/changelog.html"
     });
   }

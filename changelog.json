@@ -2,14 +2,14 @@
   "project": "EMCEssentials",
   "entries": [
     {
-      "version": "0.5.1",
+      "version": "0.5.3",
       "date": "2026-05-24",
-      "title": "Tradechat hotfix",
+      "title": "Crash and icon hotfix",
       "items": [
-        "Advertising now sends adverts with /tradechat instead of /trade.",
-        "This prevents EarthMC from reading advert text as a player trade command.",
-        "The Advertising page text now matches the real command used in game.",
-        "Website, latest metadata and update worker now point to the 0.5.1 build."
+        "Fixed a crash when opening Extras caused by an uppercase Help icon path.",
+        "Fixed the missing Docs icon in the Hopper Scripts page.",
+        "Advertising now sends messages with /tradechat instead of /trade.",
+        "Website metadata and update worker now point to the 0.5.3 build."
       ]
     }
   ]
