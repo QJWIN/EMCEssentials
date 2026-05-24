@@ -2,14 +2,15 @@
   "project": "EMCEssentials",
   "entries": [
     {
-      "version": "0.5.3",
+      "version": "0.5.4",
       "date": "2026-05-24",
-      "title": "Crash and icon hotfix",
+      "title": "Advertising and Townless refresh hotfix",
       "items": [
-        "Fixed a crash when opening Extras caused by an uppercase Help icon path.",
-        "Fixed the missing Docs icon in the Hopper Scripts page.",
-        "Advertising now sends messages with /tradechat instead of /trade.",
-        "Website metadata and update worker now point to the 0.5.3 build."
+        "Auto Advertising no longer sends a message immediately after login.",
+        "Turning Auto ON now waits the normal six-minute delay before sending.",
+        "Townless refresh now rebuilds the list from fresh API data.",
+        "Players who joined a town should no longer remain stuck in Townless after refresh.",
+        "Website metadata and update worker now point to the 0.5.4 build."
       ]
     }
   ]
