@@ -1,9 +1,9 @@
 {
   "project": "EMCEssentials",
   "status": "Release available",
-  "modVersion": "0.5.4",
+  "modVersion": "0.6.1",
   "minecraftVersion": "1.21.11",
   "loader": "Fabric",
   "sourceCode": "Private",
-  "downloadUrl": "downloads/EMCEssentials-0.5.4.jar"
+  "downloadUrl": "downloads/EMCEssentials-0.6.1.jar"
 }

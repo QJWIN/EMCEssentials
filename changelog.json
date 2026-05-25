@@ -2,6 +2,22 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.6.1",
+      "date": "2026-05-25",
+      "title": "Mining Session and RP Hats release",
+      "items": [
+        "Added the Mining Session HUD for premium mining workflows.",
+        "Mining Session now tracks elapsed time, total blocks mined and real ore blocks mined during the active session.",
+        "Gold tracking now separates mined gold blocks from gold available in the player inventory and ender chest.",
+        "Gold in inventory is displayed as a gold-equivalent value, including raw gold, gold ore and silk-touched ore sources.",
+        "Added the RP Hats menu in Extras.",
+        "Added hat preview cards and a Copy button to copy the exact hat name.",
+        "RP Hats can be applied by renaming a carved pumpkin in an anvil.",
+        "Added 131 RP hats from QOL and the Catholic Church Pack.",
+        "Website metadata, download link and update worker now point to the 0.6.1 build."
+      ]
+    },
+    {
       "version": "0.5.4",
       "date": "2026-05-24",
       "title": "Advertising and Townless refresh hotfix",
