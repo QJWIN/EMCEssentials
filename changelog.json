@@ -2,6 +2,21 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.6.2",
+      "date": "2026-05-26",
+      "title": "RP Items, Church access and security update",
+      "items": [
+        "Renamed RP Hats to RP Items.",
+        "Added RP Items categories with tabs for hats, weapons, objects, food, textiles and church items.",
+        "Added vanilla material cards next to Copy so players know which item must be renamed.",
+        "Added protected Church RP Items access with a password popup validated by the entitlement worker.",
+        "Church access now resets when leaving the RP Items page.",
+        "Improved RP Items UI sizing, English tab labels and compact Premium reference display.",
+        "Fixed RP item preview model wrappers for custom skins.",
+        "Town map and Nation map are now Premium-gated through entitlement features."
+      ]
+    },
+    {
       "version": "0.6.1",
       "date": "2026-05-25",
       "title": "Mining Session and RP Hats release",
