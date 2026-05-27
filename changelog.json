@@ -2,6 +2,20 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.6.3",
+      "date": "2026-05-27",
+      "title": "RP Items texture and material fixes",
+      "items": [
+        "Added the latest RP item texture fixes for the extra RP packs.",
+        "Fixed additional RP item model references to reduce missing pink and black previews.",
+        "Changed drink RP items back to water-filled potions as their rename material while protecting vanilla potion textures.",
+        "Removed the Branza RP item because its model was still missing texture data.",
+        "Fixed the propeller hat texture animation metadata so it renders correctly.",
+        "Removed the Textiles tab from RP Items and merged textile entries into Objects.",
+        "Adjusted RP Items tab sizing so tab labels stay inside their buttons."
+      ]
+    },
+    {
       "version": "0.6.2",
       "date": "2026-05-26",
       "title": "RP Items, Church access and security update",
