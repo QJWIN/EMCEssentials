@@ -2,6 +2,20 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.6.4",
+      "date": "2026-05-30",
+      "title": "Raid Helper and Townless refresh update",
+      "items": [
+        "Renamed Snip Tool to Raid Helper and updated the main menu subtitle to EarthMC Professional Toolkit.",
+        "Added Raid Helper tabs for Town For Sale, Townless Gold, Outsider Perm and Overclaim Town.",
+        "Added Overclaim Town detection using current claims versus calculated claim limits.",
+        "Blocked Townless Gold as Coming soon while a safe age/playtime detection method is redesigned.",
+        "Restored the fast Townless cache method based on online players and player town status.",
+        "Decoupled Townless auto-refresh from the heavier residents updater so townless.json can refresh independently.",
+        "Updated website metadata and the update worker to point to version 0.6.4."
+      ]
+    },
+    {
       "version": "0.6.3",
       "date": "2026-05-27",
       "title": "RP Items texture and material fixes",
