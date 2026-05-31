@@ -89,5 +89,26 @@
         "Website metadata and update worker now point to the 0.5.4 build."
       ]
     }
+  ],
+  "latest": "0.6.6",
+  "versions": [
+    {
+      "version": "0.6.6",
+      "date": "2026-05-31",
+      "title": "Blacklist hard block, Data backup, Shop Price",
+      "summary": "Hard-block blacklisted accounts, add EarthMC API nation/town verification in the entitlement worker, add Data & mode JSON export/import columns, and ship the manual Shop Price premium tool.",
+      "changes": [
+        "Added full blacklist hard-block behavior.",
+        "Blacklisted accounts can no longer open EMCE menus, use client commands, use keybind actions, or interact with free/premium tools.",
+        "Hidden all EMCE HUD overlays for blacklisted accounts.",
+        "Added a red blacklist warning message in chat.",
+        "Added Cloudflare entitlement worker nation/town verification through the EarthMC API.",
+        "Added Data & mode export/import columns for JSON backup categories.",
+        "Added manual Shop Price premium tool and calculator.",
+        "Added item catalog coverage for vanilla items plus Premium Egg, Giant Gold Crate, Gold Crate and Mystery Crate.",
+        "Fixed Shop Price tab layout spacing across all tabs.",
+        "Kept custom resource-pack textures visible while blacklisted users are blocked from the mod logic."
+      ]
+    }
   ]
 }

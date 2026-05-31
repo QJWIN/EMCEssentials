@@ -15,10 +15,10 @@ export default {
     }
 
     return jsonResponse({
-      latestVersion: "0.6.5",
+      latestVersion: "0.6.6",
       minecraftVersion: "1.21.11",
       loader: "Fabric",
-      downloadUrl: "https://qjwin.github.io/EMCEssentials/downloads/EMCEssentials-0.6.5.jar",
+      downloadUrl: "https://qjwin.github.io/EMCEssentials/downloads/EMCEssentials-0.6.6.jar",
       changelogUrl: "https://qjwin.github.io/EMCEssentials/changelog.html"
     }, 200);
   }
