@@ -2,6 +2,23 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.6.5",
+      "date": "2026-05-31",
+      "title": "Launcher compatibility, Godthab UI pack and GUI polish",
+      "items": [
+        "Added a non-EarthMC server guard so EMCE does not run EarthMC API refreshes, automatic commands or server-specific logic while connected to another server.",
+        "Fixed launcher compatibility issues seen with Feather and non-vanilla launchers by hardening local JSON cache writes and corrupted last_success.json recovery.",
+        "Integrated the Godthab Network resource pack assets used by EMCE, including GUI backgrounds, rank glyphs, server UTF-8 icons, GUI button textures and item model definitions.",
+        "Fixed missing GUI button icons by adding the Paper and Breeze Rod item definitions plus the related GUI item model files required by Minecraft 1.21.11.",
+        "Changed vanilla container foreground labels such as chest titles and inventory labels to gold so they remain readable on the Godthab GUI textures.",
+        "Improved RP custom item handling to reduce visual ghost items after moving renamed/custom-textured items between inventory slots.",
+        "Improved anvil rename handling so custom-textured items no longer force the first assigned custom name while the player is editing the name.",
+        "Added chat badge capture for EarthMC chat lines so resident profiles can be enriched with badges seen before the nation/town/player tag.",
+        "Added Premium Egg support in the EMC Store screen with the new icon and updated store information.",
+        "Cleaned EMC Store cards by removing duplicated category labels from Premium, Mystery Crates, Queue Priority and Premium Egg while keeping the Copium Badge availability timer."
+      ]
+    },
+    {
       "version": "0.6.4",
       "date": "2026-05-30",
       "title": "Raid Helper and Townless refresh update",
