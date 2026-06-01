@@ -2,6 +2,25 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.6.6",
+      "date": "2026-05-31",
+      "title": "Blacklist hard block, Data backup and Shop Price",
+      "items": [
+        "Added full blacklist hard-block behavior for revoked users.",
+        "Blacklisted accounts can no longer open EMCE menus, use /emc client commands, trigger EMCE keybinds or interact with free/premium tools.",
+        "Hidden EMCE HUD overlays for blacklisted accounts, including radar, weather/vote, mining session, waypoints and EMCE popups.",
+        "Added a red blacklist warning message in chat: You have been blacklisted. If you think this is a mistake, contact QJWIN on the French Discord.",
+        "Updated the Cloudflare entitlement worker to verify player town and nation through the EarthMC API before applying whitelist/blacklist rules.",
+        "Extended blacklist checks to block both premium entitlement and RP Items Sacred unlock access.",
+        "Added Settings > Data & mode export/import columns for local JSON backups.",
+        "Added category backups for residents, towns, nations, favorites, waypoints, TP lists, Shop Price and config/keybinds.",
+        "Added the manual premium Shop Price tool with Add/Update, Town records and Global item stats tabs.",
+        "Added Shop Price item catalog support for all vanilla items plus Premium Egg, Giant Gold Crate, Gold Crate and Mystery Crate.",
+        "Fixed Shop Price layout spacing across every tab so section titles no longer overlap the first field or description.",
+        "Kept resource-pack textures visible for blacklisted users while disabling all EMCE client logic."
+      ]
+    },
+    {
       "version": "0.6.5",
       "date": "2026-05-31",
       "title": "Launcher compatibility, Godthab UI pack and GUI polish",
