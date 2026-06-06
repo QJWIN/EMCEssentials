@@ -1478,7 +1478,7 @@
           <div class="pixel-card-stack">
             <div class="pixel-card-mini">Residents • Towns • Nations</div>
             <div class="pixel-card-mini">EMC Store • Hopper Filter</div>
-            <div class="pixel-card-mini">Waypoints • Weather • Vote</div>
+            <div class="pixel-card-mini">Waypoints • Weather • GPS</div>
           </div>
         </div>
       </div>
@@ -1518,8 +1518,8 @@
 
         <div class="feature-card">
           <div class="feature-icon">🌦️</div>
-          <h4>Weather & Vote</h4>
-          <p>Group useful server information into readable screens instead of leaving everything in chat.</p>
+          <h4>Weather</h4>
+          <p>Display server weather, VP progress and useful location data in a compact readable HUD.</p>
         </div>
       </div>
 
@@ -1538,7 +1538,7 @@
           <div class="visual-content">
             <span class="visual-eyebrow">EMCE Premium</span>
             <h4>Comfort tools for active players</h4>
-            <p>Premium features focus on automation and repeated workflows: adverts, lists, tracking and advanced shortcuts. They are separate from EarthMC Premium.</p>
+            <p>Premium features focus on automation and repeated workflows: GPS navigation, vote cooldowns, event history, shop pricing, adverts, lists and tracking. They are separate from EarthMC Premium.</p>
           </div>
         </div>
       </div>
@@ -1583,6 +1583,30 @@
         </div>
 
         <div class="feature-card premium">
+          <div class="feature-icon">🧭</div>
+          <h4>GPS Navigator</h4>
+          <p>Track waypoints, town homes, residents, watchlist and tracked targets with a movable TomTom-like direction HUD.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">🗳️</div>
+          <h4>Vote Party+</h4>
+          <p>Read vote-party progress, show fixed thresholds, parse vote cooldowns and open every ready vote link from one screen.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">🕘</div>
+          <h4>Event History</h4>
+          <p>Review recorded town and nation changes in a clearer event list built for quick checking.</p>
+        </div>
+
+        <div class="feature-card premium">
+          <div class="feature-icon">💰</div>
+          <h4>Shop Price</h4>
+          <p>Record town prices, browse town records and compare global item stats across shops.</p>
+        </div>
+
+        <div class="feature-card premium">
           <div class="feature-icon">⛏️</div>
           <h4>Mining Session</h4>
           <p>Track a mining session with elapsed time, total blocks mined, real ores mined, gold blocks mined and gold available from inventory plus ender chest.</p>
@@ -1623,20 +1647,7 @@
           <h4>Warps</h4>
           <p>Public warp shortcuts and cleaner travel screens.</p>
         </div>
-
-        <div class="roadmap-card">
-          <div class="roadmap-icon">🏪</div>
-          <h4>Shop tools</h4>
-          <p>Extra server shop helpers without duplicating the EMC Store page.</p>
-        </div>
-
-        <div class="roadmap-card">
-          <div class="roadmap-icon">👥</div>
-          <h4>Friends</h4>
-          <p>Friend-list tools and quick actions for players you check often.</p>
-        </div>
-
-        <div class="roadmap-card">
+<div class="roadmap-card">
           <div class="roadmap-icon">✉️</div>
           <h4>Mail</h4>
           <p>Cleaner shortcuts for message-related commands.</p>
@@ -1849,9 +1860,7 @@
       "assets/screenshots/screen-02.png",
       "assets/screenshots/screen-03.png",
       "assets/screenshots/screen-04.png",
-      "assets/screenshots/screen-05.png",
-      "assets/screenshots/screen-06.png",
-      "assets/screenshots/screen-07.png"
+      "assets/screenshots/screen-05.png"
     ];
 
     const stage = document.getElementById("carouselStage");
@@ -2020,19 +2029,5 @@
     renderCarousel();
     startAutoScroll();
   </script>
-
-
-<section class="release-card" id="release-0-6-6">
-  <h2>EMCE 0.6.6 — Blacklist hard block, Data backup and Shop Price</h2>
-  <p>Hard-block blacklisted accounts, verify town/nation through the EarthMC API, add Data & mode JSON backups, and ship the manual Shop Price premium tool.</p>
-  <ul>
-    <li>Full blacklist hard-block: no menus, HUDs, commands, keybind actions or clickable tools.</li>
-    <li>Red blacklist warning message in chat.</li>
-    <li>Cloudflare entitlement worker verifies town and nation through the EarthMC API.</li>
-    <li>Data & mode now has Export and Import columns for local JSON backups.</li>
-    <li>Manual Shop Price premium tool with Add/Update, Town records and Global stats.</li>
-  </ul>
-</section>
-
 </body>
 </html>

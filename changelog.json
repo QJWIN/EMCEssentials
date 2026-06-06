@@ -2,6 +2,21 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.7.0",
+      "date": "2026-06-06",
+      "title": "GPS Navigator, Vote Party+, Event History and responsive UI",
+      "items": [
+        "Added GPS Navigator as a premium tool with tabs for waypoints, towns, tracked players, watchlist and residents.",
+        "Added movable GPS HUD elements: the target info box can be moved and resized, while the direction arrow can be moved independently.",
+        "Added Vote Party+ with fixed thresholds, vote-link cooldown parsing, clickable vote buttons and an Open all ready link action.",
+        "Vote Party+ now separates VP refresh from vote-link cooldown refresh and hides only the command output launched silently by the mod.",
+        "Renamed Ruined History to Event History and improved the event list layout for town and nation changes.",
+        "Improved global GUI scaling so main-menu cards, submenu widgets and custom buttons stay aligned across GUI scale values.",
+        "Improved Shop Price town-record selection so the town dropdown remains editable and can show all records after a selection.",
+        "Updated the website, public changelog, release metadata and Cloudflare update worker for EMCE 0.7.0."
+      ]
+    },
+    {
       "version": "0.6.6",
       "date": "2026-05-31",
       "title": "Blacklist hard block, Data backup and Shop Price",
