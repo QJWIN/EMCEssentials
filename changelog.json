@@ -2,6 +2,18 @@
   "project": "EMCEssentials",
   "entries": [
     {
+      "version": "0.7.41",
+      "date": "2026-06-14",
+      "title": "RP Objects update, Feather compatibility and anti pink/black item models",
+      "items": [
+        "Updated the RP Objects catalog with the latest 3D object models and positions, including refreshed Life Buoy and Coffee Mug assets.",
+        "Added new RP object models: Bollard, French Flag, Newspapers, Payphone, Postcard and Road Block.",
+        "Applied the Minecraft 1.21.11 anti pink/black pipeline to every new or refreshed object: model JSON, texture PNG, runtime item_model definition and Copper Nugget custom-name mapping.",
+        "Kept Feather launcher compatibility by leaving the global HandledScreen mixin disabled at runtime.",
+        "Updated public release metadata and download link for EMCE 0.7.41."
+      ]
+    },
+    {
       "version": "0.7.0",
       "date": "2026-06-06",
       "title": "GPS Navigator, Vote Party+, Event History and responsive UI",
